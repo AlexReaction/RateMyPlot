@@ -3,6 +3,7 @@ package de.AlexOffiziell.RateMyPlot.Core;
 import com.github.intellectualsites.plotsquared.api.PlotAPI;
 import de.AlexOffiziell.RateMyPlot.Commands.Info_CMD;
 import de.AlexOffiziell.RateMyPlot.Events.PlotRated_Listener;
+import de.AlexOffiziell.RateMyPlot.FileManagement.FileFactory;
 import de.AlexOffiziell.RateMyPlot.Utils.Utils;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.Plugin;
@@ -19,6 +20,14 @@ public class Main extends JavaPlugin {
 
     @Override
     public void onEnable() {
+
+
+        FileFactory factory = new FileFactory();
+        factory.createFile("config.yml", getDataFolder().getPath());
+        factory.createFile("messages.yml", getDataFolder().getPath());
+
+
+
         System.out.println(Utils.getInstance().getPrefix() + "activated");
         Objects.requireNonNull(this.getCommand("hallo")).setExecutor(new Info_CMD());
         this.getServer().getPluginManager().registerEvents(new PlotRated_Listener(), this);
