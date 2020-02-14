@@ -2,13 +2,15 @@ package de.AlexOffiziell.RateMyPlot.Core;
 
 import com.github.intellectualsites.plotsquared.api.PlotAPI;
 import de.AlexOffiziell.RateMyPlot.Commands.Info_CMD;
+import de.AlexOffiziell.RateMyPlot.Events.PlotRated_Listener;
 import de.AlexOffiziell.RateMyPlot.Utils.Utils;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
-import java.util.logging.Logger;
+import java.util.Objects;
+
 
 public class Main extends JavaPlugin {
 
@@ -18,7 +20,8 @@ public class Main extends JavaPlugin {
     @Override
     public void onEnable() {
         System.out.println(Utils.getInstance().getPrefix() + "activated");
-        this.getCommand("hallo").setExecutor(new Info_CMD());
+        Objects.requireNonNull(this.getCommand("hallo")).setExecutor(new Info_CMD());
+        this.getServer().getPluginManager().registerEvents(new PlotRated_Listener(), this);
         getPlotAPI();
         super.onEnable();
     }

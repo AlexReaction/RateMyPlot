@@ -1,4 +1,7 @@
 name: RateMyPlot
-main: main.java.de.AlexOffiziell.RateMyPlot.Core
+main: de.AlexOffiziell.RateMyPlot.Core.Main
 version: "1.0"
 author: Alex
+commands:
+  hallo:
+    description: "123"
