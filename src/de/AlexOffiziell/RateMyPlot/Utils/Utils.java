@@ -1,11 +1,13 @@
 package de.AlexOffiziell.RateMyPlot.Utils;
 
-import sun.nio.ch.Util;
+import com.github.intellectualsites.plotsquared.api.PlotAPI;
 
 public class Utils {
 
     private static Utils instance = new Utils();
 
+
+    public static PlotAPI plotAPI;
 
 
 
