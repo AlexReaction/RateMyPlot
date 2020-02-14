@@ -4,6 +4,7 @@ import com.github.intellectualsites.plotsquared.api.PlotAPI;
 import de.AlexOffiziell.RateMyPlot.Commands.Info_CMD;
 import de.AlexOffiziell.RateMyPlot.Events.PlotRated_Listener;
 import de.AlexOffiziell.RateMyPlot.FileManagement.FileFactory;
+import de.AlexOffiziell.RateMyPlot.FileManagement.FileHolder;
 import de.AlexOffiziell.RateMyPlot.Utils.Utils;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.Plugin;
@@ -14,17 +15,16 @@ import java.util.Objects;
 
 
 public class Main extends JavaPlugin {
+    static Main instance;
 
     //TODO: Custom events
 
 
     @Override
     public void onEnable() {
+        instance = this;
 
-
-        FileFactory factory = new FileFactory();
-        factory.createFile("config.yml", getDataFolder().getPath());
-        factory.createFile("messages.yml", getDataFolder().getPath());
+        FileHolder.getInstance().messages.createFile();
 
 
 
@@ -65,5 +65,9 @@ public class Main extends JavaPlugin {
         // Do PlotSquared related stuff
         Utils.plotAPI = new PlotAPI();
 
+    }
+
+    public static Main getInstance() {
+        return instance == null ? new Main() : instance;
     }
 }

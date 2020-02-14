@@ -10,11 +10,6 @@ public class Utils {
     public static PlotAPI plotAPI;
 
 
-
-
-
-
-
     public String getPrefix(){
         return "§8[§4RateMyPlot§8] ";
     }
