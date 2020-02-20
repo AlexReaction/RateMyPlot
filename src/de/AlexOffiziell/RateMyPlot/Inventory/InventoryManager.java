@@ -8,6 +8,7 @@ public class InventoryManager {
 
     String name;
     int size;
+    Inventory inventory;
 
     public InventoryManager(String name, int size){
         this.name = name;
@@ -15,8 +16,12 @@ public class InventoryManager {
     }
 
 
-    public Inventory createInventory(){
-        return Bukkit.createInventory(null, this.size, this.name);
+    public void createInventory(){
+        this.inventory = Bukkit.createInventory(null, this.size, this.name);
+    }
+
+    public Inventory getInventory() {
+        return inventory == null ? Bukkit.createInventory(null,9, "§4§lNo Inventory created (Standard Inventory showing)" ) : inventory; //TODO: Make this more beautiful
     }
 
     public String getName() {

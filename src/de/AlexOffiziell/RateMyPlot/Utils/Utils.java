@@ -21,7 +21,9 @@ public class Utils {
     }
 
     public void createStandardConfigs(){
-        FileHolder.getInstance().standardItemConfig.add("VoteInventory.Background//minecraft:gray_stained_glass_pane");
+        FileHolder.getInstance().standardItemConfig.add("VoteInventory.Background.Material//minecraft:gray_stained_glass_pane");
+        FileHolder.getInstance().standardItemConfig.add("VoteInventory.Background.Name//&8 []");
+
         FileHolder.getInstance().standardItemConfig.add("VoteInventory.StandardVote.Material//minecraft:lime_wool");
         FileHolder.getInstance().standardItemConfig.add("VoteInventory.StandardVote.Name//%position Points");
         FileHolder.getInstance().standardItemConfig.add("VoteInventory.StandardVote.Lore//&aSelected!"); //TODO: Add multi line lores
@@ -33,6 +35,12 @@ public class Utils {
 
 
         FileHolder.getInstance().items.generateStandart(FileHolder.getInstance().standardItemConfig, "//");
+    }
+
+
+
+    public String getMaterialString(String rawInput){
+        return rawInput == null ? "-1" : rawInput.replace("minecraft:","").toUpperCase();
     }
 
 

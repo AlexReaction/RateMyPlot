@@ -19,6 +19,7 @@ public class Main extends JavaPlugin {
 
     //TODO: Custom events
     //TODO: Responsive Inventory -> user can choose how many vote categories, the more categories the bigger the inventory has to be!
+    //TODO: Cache values from config and only update them on start
 
     @Override
     public void onEnable() {

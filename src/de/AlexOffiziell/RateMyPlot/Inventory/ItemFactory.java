@@ -28,7 +28,6 @@ public class ItemFactory {
             assert meta != null : "ItemMeta is null";
 
             meta.setDisplayName(this.name);
-            meta.setLore(this.lore);
 
             stack.setItemMeta(meta);
             return stack;
