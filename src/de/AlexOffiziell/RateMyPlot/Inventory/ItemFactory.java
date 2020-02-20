@@ -4,6 +4,7 @@ import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class ItemFactory {
@@ -14,10 +15,11 @@ public class ItemFactory {
 
 
 
-        public ItemFactory(Material material, String name, List<String> lore){
+        public ItemFactory(Material material, String name, String lore){
             this.material = material;
             this.name = name;
-            this.lore = lore;
+            this.lore = new ArrayList<>();
+            this.lore.add(lore);
         }
 
 
@@ -28,6 +30,7 @@ public class ItemFactory {
             assert meta != null : "ItemMeta is null";
 
             meta.setDisplayName(this.name);
+            meta.setLore(this.lore);
 
             stack.setItemMeta(meta);
             return stack;

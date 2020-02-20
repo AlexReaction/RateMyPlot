@@ -39,12 +39,17 @@ public class Info_CMD implements CommandExecutor {
                     Plot currPlot = plotPlayer.getCurrentPlot();
 
 
-                    InventoryManager inventoryManager = new InventoryManager("§a§lVote Inventory", 54); //TODO: Get name and size from config
+                    InventoryManager inventoryManager = new InventoryManager();
                     inventoryManager.createInventory();
                     for (int i = 0;i<54;i++) {
-                        inventoryManager.getInventory().addItem(ItemManager.getManager().backgroundItem.getItemStack());
+                        inventoryManager.getInventory().setItem(i,ItemManager.getManager().backgroundItem.getItemStack());
 
                     }
+
+                    inventoryManager.getInventory().setItem(10, ItemManager.getManager().vote1.getItemStack());
+                    inventoryManager.getInventory().setItem(19, ItemManager.getManager().vote2.getItemStack());
+                    inventoryManager.getInventory().setItem(28, ItemManager.getManager().vote3.getItemStack());
+                    inventoryManager.getInventory().setItem(37, ItemManager.getManager().vote4.getItemStack());
 
 
                     player.openInventory(inventoryManager.getInventory());
