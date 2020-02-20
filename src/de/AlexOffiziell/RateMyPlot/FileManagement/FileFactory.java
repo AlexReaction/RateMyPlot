@@ -196,7 +196,7 @@ public class FileFactory {
         if(values.size() == 0){
             throw new ArrayIndexOutOfBoundsException("ArrayList is null");
         }else{
-            if(!this.file.exists()){
+            if(this.file.exists()){ //CHANGED FROM !this.file.exists to true statement!
                 for(int i=0;i<values.size();i++){
                     String value1 = values.get(i);
                     if(!configuration.contains(value1)){

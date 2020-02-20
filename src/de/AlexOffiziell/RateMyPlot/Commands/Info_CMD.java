@@ -3,6 +3,7 @@ package de.AlexOffiziell.RateMyPlot.Commands;
 import com.github.intellectualsites.plotsquared.plot.object.Plot;
 import com.github.intellectualsites.plotsquared.plot.object.PlotPlayer;
 import de.AlexOffiziell.RateMyPlot.CustomEvents.PlotRatedEvent;
+import de.AlexOffiziell.RateMyPlot.Inventory.InventoryManager;
 import de.AlexOffiziell.RateMyPlot.Inventory.ItemFactory;
 import de.AlexOffiziell.RateMyPlot.Utils.Utils;
 import org.bukkit.Bukkit;
@@ -53,7 +54,9 @@ public class Info_CMD implements CommandExecutor {
                     stack1.setItemMeta(meta1);
                //     player.getInventory().addItem(stack1);
 
+                    InventoryManager inventoryManager = new InventoryManager("§a§lVote Inventory", 54); //TODO: Get name and size from config
 
+                    player.openInventory(inventoryManager.createInventory());
                     player.sendMessage(String.valueOf(currPlot == null ? Utils.getInstance().getPrefix() + "§4§lBitte stelle dich eindeutig auf das Plot" : currPlot.owner == null ? "Dieses Plot gehört keinem" : currPlot.getOwners()));
                 }
             }else{

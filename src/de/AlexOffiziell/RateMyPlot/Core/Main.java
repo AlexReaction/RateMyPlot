@@ -18,13 +18,17 @@ public class Main extends JavaPlugin {
     static Main instance;
 
     //TODO: Custom events
-
+    //TODO: Responsive Inventory -> user can choose how many vote categories, the more categories the bigger the inventory has to be!
 
     @Override
     public void onEnable() {
         instance = this;
 
+
+
         FileHolder.getInstance().messages.createFile();
+        FileHolder.getInstance().items.createFile();
+        Utils.getInstance().createStandardConfigs();
 
         System.out.println(Utils.getInstance().getPrefix() + "activated");
         Objects.requireNonNull(this.getCommand("hallo")).setExecutor(new Info_CMD());
