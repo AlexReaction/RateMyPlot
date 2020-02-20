@@ -12,7 +12,7 @@ public class Utils {
 
     public String getPrefix(){
         return "§8[§4RateMyPlot§8] ";
-    }
+    } //TODO: get String from some config file
 
     public String getNoPerm(){
         return getPrefix() + "§4You have no permission to execute this command!";

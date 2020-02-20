@@ -10,18 +10,6 @@ public class FileHolder {
     public FileFactory messages = new FileFactory("messages.yml", Main.getInstance().getDataFolder());
 
 
-
-
-
-
-
-
-
-
-
-
-
-
     static FileHolder fileHolder = new FileHolder();
 
     public static FileHolder getInstance() {

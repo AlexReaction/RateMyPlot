@@ -26,8 +26,6 @@ public class Main extends JavaPlugin {
 
         FileHolder.getInstance().messages.createFile();
 
-
-
         System.out.println(Utils.getInstance().getPrefix() + "activated");
         Objects.requireNonNull(this.getCommand("hallo")).setExecutor(new Info_CMD());
         this.getServer().getPluginManager().registerEvents(new PlotRated_Listener(), this);
