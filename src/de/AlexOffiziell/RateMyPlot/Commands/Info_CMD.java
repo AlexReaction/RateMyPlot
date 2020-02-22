@@ -2,8 +2,11 @@ package de.AlexOffiziell.RateMyPlot.Commands;
 
 import com.github.intellectualsites.plotsquared.plot.object.Plot;
 import com.github.intellectualsites.plotsquared.plot.object.PlotPlayer;
+import de.AlexOffiziell.RateMyPlot.Cache.ConfigCache;
+import de.AlexOffiziell.RateMyPlot.Core.Main;
 import de.AlexOffiziell.RateMyPlot.CustomEvents.PlotRatedEvent;
 import de.AlexOffiziell.RateMyPlot.FileManagement.FileHolder;
+import de.AlexOffiziell.RateMyPlot.FileManagement.InventoryItem;
 import de.AlexOffiziell.RateMyPlot.Inventory.InventoryManager;
 import de.AlexOffiziell.RateMyPlot.Inventory.ItemFactory;
 import de.AlexOffiziell.RateMyPlot.Utils.ItemManager;
@@ -17,9 +20,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
+import java.util.*;
 
 public class Info_CMD implements CommandExecutor {
     public boolean onCommand(CommandSender commandSender, Command command, String s, String[] args) {
@@ -45,6 +46,15 @@ public class Info_CMD implements CommandExecutor {
                         inventoryManager.getInventory().setItem(i,ItemManager.getManager().backgroundItem.getItemStack());
 
                     }
+                    //TESTING
+                    for (Map.Entry<String, InventoryItem> entry : Main.configCache.getConfigCache().entrySet()){
+                        player.sendMessage("Key: " + entry.getKey());
+                        player.sendMessage("Value: " + entry.getValue().getName() + " " + entry.getValue().getValue());
+                        player.sendMessage("------");
+                    }
+
+                    //TESTING END
+
 
                     inventoryManager.getInventory().setItem(10, ItemManager.getManager().vote1.getItemStack());
                     inventoryManager.getInventory().setItem(19, ItemManager.getManager().vote2.getItemStack());
@@ -52,6 +62,8 @@ public class Info_CMD implements CommandExecutor {
                     inventoryManager.getInventory().setItem(37, ItemManager.getManager().vote4.getItemStack());
                     inventoryManager.getInventory().setItem(38, ItemManager.getManager().standardVote.getItemStack());
                     inventoryManager.getInventory().setItem(39, ItemManager.getManager().current.getItemStack());
+
+
 
 
 

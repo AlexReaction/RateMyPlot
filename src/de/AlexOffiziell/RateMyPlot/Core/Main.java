@@ -6,6 +6,7 @@ import de.AlexOffiziell.RateMyPlot.Commands.Info_CMD;
 import de.AlexOffiziell.RateMyPlot.Events.PlotRated_Listener;
 import de.AlexOffiziell.RateMyPlot.FileManagement.FileFactory;
 import de.AlexOffiziell.RateMyPlot.FileManagement.FileHolder;
+import de.AlexOffiziell.RateMyPlot.FileManagement.InventoryItem;
 import de.AlexOffiziell.RateMyPlot.Utils.Utils;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.Plugin;
@@ -17,6 +18,7 @@ import java.util.Objects;
 
 public class Main extends JavaPlugin {
     static Main instance;
+    public static ConfigCache configCache;
 
     /*
     TODO: Custom events
@@ -38,6 +40,7 @@ public class Main extends JavaPlugin {
         Objects.requireNonNull(this.getCommand("hallo")).setExecutor(new Info_CMD());
         this.getServer().getPluginManager().registerEvents(new PlotRated_Listener(), this);
         getPlotAPI();
+        initiateCache();
         super.onEnable();
     }
 
@@ -75,8 +78,16 @@ public class Main extends JavaPlugin {
 
 
     private void initiateCache(){
-        ConfigCache configCache = new ConfigCache();
-        configCache.addPairToCache(null, null); //ADD values from the config to the cache :) gonna grab dinner and do this later
+        configCache = new ConfigCache();
+        configCache.addPairToCache("Background_Material", InventoryItem.MATERIAL_BACKGROUND);
+        configCache.addPairToCache("Selected_Material", InventoryItem.MATERIAL_CURRENTLY_SELECTED);
+        configCache.addPairToCache("Not_Selected_Material", InventoryItem.MATERIAL_CURRENTLY_NOT_SELECTED);
+        configCache.addPairToCache("Vote_1_Material", InventoryItem.MATERIAL_VOTE_CATEGORY_1);
+        configCache.addPairToCache("Vote_2_Material", InventoryItem.MATERIAL_VOTE_CATEGORY_2);
+        configCache.addPairToCache("Vote_3_Material", InventoryItem.MATERIAL_VOTE_CATEGORY_3);
+        configCache.addPairToCache("Vote_4_Material", InventoryItem.MATERIAL_VOTE_CATEGORY_4);
+
+
     }
 
     public static Main getInstance() {
