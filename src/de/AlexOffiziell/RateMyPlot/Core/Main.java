@@ -1,6 +1,7 @@
 package de.AlexOffiziell.RateMyPlot.Core;
 
 import com.github.intellectualsites.plotsquared.api.PlotAPI;
+import de.AlexOffiziell.RateMyPlot.Cache.ConfigCache;
 import de.AlexOffiziell.RateMyPlot.Commands.Info_CMD;
 import de.AlexOffiziell.RateMyPlot.Events.PlotRated_Listener;
 import de.AlexOffiziell.RateMyPlot.FileManagement.FileFactory;
@@ -17,9 +18,11 @@ import java.util.Objects;
 public class Main extends JavaPlugin {
     static Main instance;
 
-    //TODO: Custom events
-    //TODO: Responsive Inventory -> user can choose how many vote categories, the more categories the bigger the inventory has to be!
-    //TODO: Cache values from config and only update them on start
+    /*
+    TODO: Custom events
+    TODO: Responsive Inventory -> user can choose how many vote categories, the more categories the bigger the inventory has to be! (LOW PRIORITY)
+    TODO: Cache values from config and only update them on start (HIGH PRIORITY)
+    */
 
     @Override
     public void onEnable() {
@@ -68,6 +71,12 @@ public class Main extends JavaPlugin {
         // Do PlotSquared related stuff
         Utils.plotAPI = new PlotAPI();
 
+    }
+
+
+    private void initiateCache(){
+        ConfigCache configCache = new ConfigCache();
+        configCache.addPairToCache(null, null); //ADD values from the config to the cache :) gonna grab dinner and do this later
     }
 
     public static Main getInstance() {

@@ -50,6 +50,9 @@ public class Info_CMD implements CommandExecutor {
                     inventoryManager.getInventory().setItem(19, ItemManager.getManager().vote2.getItemStack());
                     inventoryManager.getInventory().setItem(28, ItemManager.getManager().vote3.getItemStack());
                     inventoryManager.getInventory().setItem(37, ItemManager.getManager().vote4.getItemStack());
+                    inventoryManager.getInventory().setItem(38, ItemManager.getManager().standardVote.getItemStack());
+                    inventoryManager.getInventory().setItem(39, ItemManager.getManager().current.getItemStack());
+
 
 
                     player.openInventory(inventoryManager.getInventory());

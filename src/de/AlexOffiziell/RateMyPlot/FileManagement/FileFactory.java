@@ -190,13 +190,13 @@ public class FileFactory {
      * @param whereSplit is the string where the values will be splitted
      */
 
-    //TODO REFACTOR THIS
+    //TODO REFACTOR THIS WITH #setDefault
 
     public void generateStandart(ArrayList<String> values, String whereSplit){
         if(values.size() == 0){
             throw new ArrayIndexOutOfBoundsException("ArrayList is null");
         }else{
-            if(this.file.exists()){ //CHANGED FROM !this.file.exists to true statement!
+            if(!this.file.exists()){ //CHANGED FROM !this.file.exists to true statement!
                 for(int i=0;i<values.size();i++){
                     String value1 = values.get(i);
                     if(!configuration.contains(value1)){
